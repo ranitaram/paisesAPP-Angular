@@ -1,0 +1,28 @@
+<H2>Por país</H2>
+<hr>
+
+
+<div class="row">
+    <div class="col">
+        <app-pais-input></app-pais-input>
+
+    </div>
+
+</div>
+<hr>
+<!--si existe el error se va a mostrar-->
+<div *ngIf="existeError" 
+    class="alert alert-danger">
+    No se encontró nada con el término {{termino}}
+</div>
+
+<div *ngIf=" paises.length > 0" class="row">
+    <div class="col">
+       <!--aqui viene la tabla-->
+        <app-pais-tabla [paises]="paises" >  </app-pais-tabla>
+    </div>
+
+</div>
+
+
+
