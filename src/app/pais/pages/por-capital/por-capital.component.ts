@@ -41,10 +41,7 @@ export class PorCapitalComponent  {
     })
   }
 
-  sugerencias(termino: string){
-    this.existeError = false;
-    //TODO: crear sugerencias
-  }
+  
 
   
 

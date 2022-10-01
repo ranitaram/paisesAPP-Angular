@@ -25,4 +25,15 @@ export class PaisService {
 
     return this.http.get<Country[]>(link);
   }
+
+  //sin los [] en el Country, solo regresamos 1 pais y 
+  // con [] regresamos un arreglo de paises 
+  getPaisPorAlpha(id: string): Observable<Country>{
+    const url = `${this.apiUrl}/alpha/${id}`;
+    return this.http.get<Country>(url);
+  }
+
+  // buscarRegion(region: string): Observable<Country[]>{
+  //   return
+  // }
 }
