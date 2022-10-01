@@ -1,4 +1,4 @@
-import { Component, EventEmitter,  Output, OnInit  } from '@angular/core';
+import { Component, EventEmitter,  Output, OnInit, Input  } from '@angular/core';
 import { debounceTime, Subject } from 'rxjs';
 
 @Component({
@@ -15,6 +15,10 @@ export class PaisInputComponent  implements OnInit{
   @Output() onEnter: EventEmitter<string> = new EventEmitter();
   //ondebaunce se va a emitir cuando la persona deja de escribir
   @Output() onDebounce: EventEmitter<string> = new EventEmitter();
+
+  //aqui recibimos el placeholder
+  //esto crea una nueva propiedad en el paisInputComponent
+  @Input() placeholder: string = "";
   
   
   //el subjec s un observable y asi se crea
