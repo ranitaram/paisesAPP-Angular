@@ -19,13 +19,15 @@ export class PorPaisComponent  {
 
  
 
-  buscar(){
+  //este es el termino que viene del input
+  buscar(termino: string){
     this.existeError = false;
-    
+    //aqui se lo establecemos a la propiedad de la clase
+    this.termino = termino;
     console.log(this.termino);
 
     //recordar colocar subscribe para que se dispare
-    this.paisService.buscarPais(this.termino)
+    this.paisService.buscarPais(termino)
     .subscribe({
       next: (paises)=> {
         console.log(paises);
@@ -40,6 +42,11 @@ export class PorPaisComponent  {
         this.paises = [];
       }
     })
+  }
+
+  sugerencias(termino: string){
+    this.existeError = false;
+    //TODO: crear sugerencias
   }
 
 
