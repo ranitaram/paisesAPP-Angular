@@ -16,6 +16,15 @@
                 
             {{region | titlecase}}
         </button>
+      
+    </div>
+
+</div>
+
+<div *ngIf=" paises.length > 0" class="row">
+    <div class="col">
+       <!--aqui viene la tabla-->
+        <app-pais-tabla [paises]="paises" >  </app-pais-tabla>
     </div>
 
 </div>
