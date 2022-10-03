@@ -1,23 +1,27 @@
-<H2>Por Capítal</H2>
-<hr>
-
-
-<div class="row">
-    <div class="col">
-        <!--placeholder="Buscar capital" lo colocara entre conchetes[], 
-            significa que quiero mandar un valor 
-            sin [] que quiero mandar un string
-        -->
-        <app-pais-input 
-        (onEnter)="buscar($event)"
-        placeholder="Buscar capital..."
-        >
-
-        </app-pais-input>
-
+<div class="animate__animated animate__fadeIn">
+    <H2>Por Capítal</H2>
+    <hr>
+    
+    
+    <div class="row">
+        <div class="col">
+            <!--placeholder="Buscar capital" lo colocara entre conchetes[], 
+                significa que quiero mandar un valor 
+                sin [] que quiero mandar un string
+            -->
+            <app-pais-input 
+            (onEnter)="buscar($event)"
+            placeholder="Buscar capital..."
+            >
+    
+            </app-pais-input>
+    
+        </div>
+    
     </div>
 
 </div>
+
 <hr>
 <!--si existe el error se va a mostrar-->
 <div *ngIf="existeError" 

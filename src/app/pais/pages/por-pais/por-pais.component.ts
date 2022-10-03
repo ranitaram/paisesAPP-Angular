@@ -5,7 +5,13 @@ import { PaisService } from '../../services/pais.service';
 @Component({
   selector: 'app-por-pais',
   templateUrl: './por-pais.component.html',
-  styleUrls: ['./por-pais.component.css']
+  styles: [
+    `
+    li{
+      cursor: pointer;
+    }
+    `
+  ]
 })
 
 export class PorPaisComponent  {
@@ -13,6 +19,8 @@ export class PorPaisComponent  {
   existeError: boolean = false;
  
   paises : Country[] = [];
+  paisesSugeridos: Country[] = [];
+  mostrarSugerencias: boolean = false;
 
   //inyectamos nuestro servicio
   constructor( private paisService: PaisService) { }
@@ -21,6 +29,7 @@ export class PorPaisComponent  {
 
   //este es el termino que viene del input
   buscar(termino: string){
+   
     this.existeError = false;
     //aqui se lo establecemos a la propiedad de la clase
     this.termino = termino;
@@ -45,8 +54,20 @@ export class PorPaisComponent  {
   }
 
   sugerencias(termino: string){
+    this.mostrarSugerencias = false;
     this.existeError = false;
+    this.termino = termino;
+    this.mostrarSugerencias = true;
     //TODO: crear sugerencias
+    this.paisService.buscarPais(termino)
+    .subscribe(paises=> this.paisesSugeridos = paises.splice(0,3),
+    
+    );
+  }
+
+  buscarSugerido(termino: string){
+    this.buscar(termino);
+    
   }
 
 
