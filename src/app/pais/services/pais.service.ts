@@ -49,7 +49,7 @@ export class PaisService {
     // //y esto es un objeto
     // .set('fields', 'name,capital,cca2,flags,population');
 
-   const url = `${this.apiUrl}/regionalbloc/${region}`
+   const url = `${this.apiUrl}/region/${region}`
     return this.http.get<Country[]>(url, {params: this.httpParams})
     .pipe(tap(console.log))
   }
